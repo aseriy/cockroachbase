@@ -12,62 +12,39 @@
   --md-code-font: "Geist Mono";
 }
 
-.md-header {
-  background-color: #000000;
-  border-bottom: 1px solid #424242;
-  box-shadow: none;
-}
-
-.md-header__button.md-logo {
+.md-header,
+.md-footer {
   display: none;
 }
 
-.md-header__title {
-  font-weight: 400;
-  color: #ffffff;
+.md-main__inner {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
 }
 
 .md-content__inner {
-  max-width: 60vw;
-  margin: 0 auto;
-  padding-top: 6rem;
-}
-
-@media (max-width: 76.1875em) {
-  .md-content__inner {
-    max-width: none;
-  }
+  max-width: none;
+  width: fit-content;
+  padding: 0;
+  margin: 0;
 }
 
 .md-typeset h1 {
-  font-weight: 200;
-  font-size: 3.5rem;
-  line-height: 1.1;
+  font-family: "Geist", sans-serif;
+  font-weight: 400;
+  font-size: clamp(2.5rem, 7.3vw, 5.5rem);
+  line-height: 1;
   color: #ffffff;
-  margin: 0 0 1.5rem;
-}
-
-.md-typeset .eyebrow {
-  font-family: "Geist Mono", monospace;
-  font-size: 0.8rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: #b8dd69;
-}
-
-.md-typeset hr {
-  border-bottom: 1px solid #424242;
+  margin: 0 0 0.45em;
 }
 
 .md-typeset p {
+  font-family: "Geist", sans-serif;
+  font-size: clamp(1rem, 2.8vw, 2.125rem);
+  line-height: 1.47;
   color: #939188;
-}
-
-.md-footer-meta {
-  background-color: #121913;
-}
-
-.md-copyright {
-  font-family: "Geist Mono", monospace;
-  color: #ffffff;
+  margin: 0;
 }
