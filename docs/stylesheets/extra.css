@@ -12,62 +12,37 @@
   --md-code-font: "Geist Mono";
 }
 
-.md-header {
-  background-color: #000000;
-  border-bottom: 1px solid #424242;
-  box-shadow: none;
-}
-
-.md-header__button.md-logo {
+.md-header,
+.md-footer,
+.md-sidebar {
   display: none;
 }
 
-.md-header__title {
-  font-weight: 400;
-  color: #ffffff;
+.md-main__inner.md-grid {
+  max-width: none;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.md-content {
+  flex-grow: 0;
 }
 
 .md-content__inner {
-  max-width: 60vw;
-  margin: 0 auto;
-  padding-top: 6rem;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
-@media (max-width: 76.1875em) {
-  .md-content__inner {
-    max-width: none;
-  }
+.md-content__inner::before {
+  display: none;
 }
 
-.md-typeset h1 {
-  font-weight: 200;
-  font-size: 3.5rem;
-  line-height: 1.1;
-  color: #ffffff;
-  margin: 0 0 1.5rem;
-}
-
-.md-typeset .eyebrow {
-  font-family: "Geist Mono", monospace;
-  font-size: 0.8rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: #b8dd69;
-}
-
-.md-typeset hr {
-  border-bottom: 1px solid #424242;
-}
-
-.md-typeset p {
-  color: #939188;
-}
-
-.md-footer-meta {
-  background-color: #121913;
-}
-
-.md-copyright {
-  font-family: "Geist Mono", monospace;
-  color: #ffffff;
+.landing {
+  display: block;
+  width: min(100vw, 1200px);
+  height: calc(min(100vw, 1200px) * 0.525);
+  aspect-ratio: 1200 / 630;
 }

@@ -1,12 +1,6 @@
 ---
-title: Coming soon
+title: CockroachBase
 hide:
   - navigation
   - toc
 ---
-
-# Coming soon
-
----
-
-The future home of CockroachBase.
