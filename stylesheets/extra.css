@@ -13,25 +13,35 @@
 }
 
 .md-header,
-.md-footer {
+.md-footer,
+.md-sidebar {
   display: none;
 }
 
-.md-main__inner {
+.md-main__inner.md-grid {
+  max-width: none;
+  margin: 0;
   min-height: 100vh;
   display: flex;
   align-items: center;
-  margin: 0;
+  justify-content: center;
+}
+
+.md-content {
+  flex-grow: 0;
 }
 
 .md-content__inner {
-  max-width: none;
-  margin: 0;
-  padding: 0;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.md-content__inner::before {
+  display: none;
 }
 
 .landing {
   display: block;
-  width: 100vw;
-  height: 100vh;
+  width: min(100vw, 1200px);
+  height: auto;
 }
