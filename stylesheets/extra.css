@@ -1,4 +1,27 @@
-@import url("https://fonts.googleapis.com/css2?family=Geist:wght@200;300;400&family=Geist+Mono:wght@400&display=swap");
+@font-face {
+  font-family: "Geist";
+  src: url("../fonts/geist.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Geist Mono";
+  src: url("../fonts/geist-mono.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Geist Fallback";
+  src: local("Arial");
+  ascent-override: 94.56%;
+  descent-override: 27.76%;
+  line-gap-override: 0%;
+  size-adjust: 106.28%;
+}
 
 [data-md-color-scheme="slate"] {
   --md-default-bg-color: #000000;
@@ -8,7 +31,7 @@
   --md-accent-fg-color: #b8dd69;
   --md-typeset-color: #ffffff;
   --md-typeset-a-color: #b8dd69;
-  --md-text-font: "Geist";
+  --md-text-font: "Geist", "Geist Fallback";
   --md-code-font: "Geist Mono";
 }
 
@@ -49,9 +72,9 @@
 
 .md-typeset h1 {
   margin: 0 0 20px;
-  font-size: 88px;
+  font-size: clamp(44px, 7.3333vw, 88px);
   font-weight: 400;
-  line-height: 88px;
+  line-height: 1;
   letter-spacing: 0;
   color: #ffffff;
 }
