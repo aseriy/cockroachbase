@@ -43,5 +43,6 @@
 .landing {
   display: block;
   width: min(100vw, 1200px);
-  height: auto;
+  height: calc(min(100vw, 1200px) * 0.525);
+  aspect-ratio: 1200 / 630;
 }
