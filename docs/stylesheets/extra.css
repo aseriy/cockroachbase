@@ -1,0 +1,73 @@
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@200;300;400&family=Geist+Mono:wght@400&display=swap");
+
+[data-md-color-scheme="slate"] {
+  --md-default-bg-color: #000000;
+  --md-default-fg-color: #ffffff;
+  --md-default-fg-color--light: #939188;
+  --md-primary-fg-color: #000000;
+  --md-accent-fg-color: #b8dd69;
+  --md-typeset-color: #ffffff;
+  --md-typeset-a-color: #b8dd69;
+  --md-text-font: "Geist";
+  --md-code-font: "Geist Mono";
+}
+
+.md-header {
+  background-color: #000000;
+  border-bottom: 1px solid #424242;
+  box-shadow: none;
+}
+
+.md-header__button.md-logo {
+  display: none;
+}
+
+.md-header__title {
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.md-content__inner {
+  max-width: 60vw;
+  margin: 0 auto;
+  padding-top: 6rem;
+}
+
+@media (max-width: 76.1875em) {
+  .md-content__inner {
+    max-width: none;
+  }
+}
+
+.md-typeset h1 {
+  font-weight: 200;
+  font-size: 3.5rem;
+  line-height: 1.1;
+  color: #ffffff;
+  margin: 0 0 1.5rem;
+}
+
+.md-typeset .eyebrow {
+  font-family: "Geist Mono", monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #b8dd69;
+}
+
+.md-typeset hr {
+  border-bottom: 1px solid #424242;
+}
+
+.md-typeset p {
+  color: #939188;
+}
+
+.md-footer-meta {
+  background-color: #121913;
+}
+
+.md-copyright {
+  font-family: "Geist Mono", monospace;
+  color: #ffffff;
+}

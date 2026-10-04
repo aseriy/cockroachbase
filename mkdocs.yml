@@ -1,0 +1,14 @@
+site_name: CockroachBase
+site_url: https://aseriy.github.io/cockroachbase/
+theme:
+  name: material
+  custom_dir: overrides
+  palette:
+    scheme: slate
+  font: false
+extra_css:
+  - stylesheets/extra.css
+plugins: []
+extra:
+  generator: false
+copyright: "© 2026 CockroachBase"
