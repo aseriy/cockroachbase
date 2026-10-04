@@ -46,3 +46,19 @@
   height: calc(min(100vw, 1200px) * 0.525);
   aspect-ratio: 1200 / 630;
 }
+
+.md-typeset h1 {
+  margin: 0 0 20px;
+  font-size: 88px;
+  font-weight: 400;
+  line-height: 88px;
+  letter-spacing: 0;
+  color: #ffffff;
+}
+
+.md-typeset p {
+  margin: 0;
+  font-size: 34px;
+  line-height: 50px;
+  color: #939188;
+}
