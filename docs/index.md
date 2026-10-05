@@ -6,4 +6,4 @@ hide:
 ---
 
 Start small. Move fast. Grow huge.  
-Don't change horses midstream.
+Don't change horses in the midstream.

@@ -1,0 +1,22 @@
+{% block extrahead %}
+<script>
+    (function dynamicRedirect() {
+        const home = "{{ config.site_url }}";
+        const base = new URL(home).pathname;
+        const prefixes = [
+            "/guides/",
+            "/reference/",
+            "/learn/"
+        ];
+
+        const currentPath = window.location.pathname.slice(base.length - 1);
+
+        for (const prefix of prefixes) {
+            if (currentPath.startsWith(prefix)) {
+                window.location.replace(home);
+                break;
+            }
+        }
+    })();
+</script>
+{% endblock %}
