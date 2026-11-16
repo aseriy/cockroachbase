@@ -50,6 +50,11 @@
   --md-code-font: "Geist Mono";
 }
 
+body {
+  -webkit-font-smoothing: auto;
+  -moz-osx-font-smoothing: auto;
+}
+
 .md-sidebar {
   display: none;
 }
@@ -128,7 +133,7 @@
 }
 
 .landing-hero p {
-  font-size: 20px;
+  font-size: 18px;
   line-height: 31px;
   max-width: 795px;
   margin: 0 0 31px;
@@ -184,7 +189,7 @@
 .md-typeset p,
 .md-typeset li {
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 200;
   line-height: 27px;
   color: var(--continuum-color-clarity-white);
 }
@@ -195,7 +200,7 @@
 
 .md-typeset p strong {
   color: var(--continuum-color-clarity-white);
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .md-typeset a {
@@ -297,7 +302,7 @@
 
 .landing-card__body {
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 200;
   line-height: 27px;
   color: var(--continuum-color-clarity-white);
   max-width: 46ch;
