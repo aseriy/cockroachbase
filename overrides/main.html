@@ -3,3 +3,17 @@
 {% block extrahead %}
   <link rel="preload" href="{{ 'fonts/geist.woff2' | url }}" as="font" type="font/woff2" crossorigin>
 {% endblock %}
+
+{% block header %}
+  <header class="landing-header">
+    <div class="landing-header__inner">
+      <a class="landing-header__logo" href="{{ nav.homepage.url | url }}"><img src="{{ 'images/cockroach-labs.svg' | url }}" alt=""></a>
+    </div>
+  </header>
+{% endblock %}
+
+{% block footer %}
+  <footer class="landing-footer">
+    <div class="landing-footer__inner">{{ config.copyright }}</div>
+  </footer>
+{% endblock %}

@@ -8,6 +8,11 @@ theme:
   font: false
 extra_css:
   - stylesheets/extra.css
+extra_javascript:
+  - javascripts/landing.js
+markdown_extensions:
+  - pymdownx.quotes:
+      callouts: true
 plugins: []
 extra:
   generator: false
