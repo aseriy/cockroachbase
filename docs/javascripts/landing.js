@@ -168,4 +168,23 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     activate(0);
   });
+
+  article.querySelectorAll(".admonition.cta a").forEach(function (a) {
+    var ns = "http://www.w3.org/2000/svg";
+    var svg = document.createElementNS(ns, "svg");
+    svg.setAttribute("viewBox", "0 0 10 10");
+    svg.setAttribute("fill", "none");
+    svg.setAttribute("aria-hidden", "true");
+    svg.setAttribute("focusable", "false");
+    ["M0.62501 4.99999H9.375", "M5.00001 9.37499L9.375 4.99999L5.00001 0.625"].forEach(function (d) {
+      var path = document.createElementNS(ns, "path");
+      path.setAttribute("d", d);
+      path.setAttribute("stroke", "currentColor");
+      path.setAttribute("stroke-width", "1.25");
+      path.setAttribute("stroke-linecap", "round");
+      path.setAttribute("stroke-linejoin", "round");
+      svg.appendChild(path);
+    });
+    a.appendChild(svg);
+  });
 });

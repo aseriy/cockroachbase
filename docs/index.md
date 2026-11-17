@@ -14,7 +14,7 @@ Like Supabase, CockroachBase is an application platform: it connects the service
 Start with a deployment that fits your budget. Build toward enterprise scale and a global audience.
 
 > [!CTA]
-> [Get started with CockroachBase](#)
+> [Try for free](#) [Request a demo](#)
 
 ## Put more engineering effort *into your product*
 
