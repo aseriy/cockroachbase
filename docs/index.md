@@ -43,7 +43,7 @@ CockroachBase reduces the assembly and integration work between essential servic
 
 You build and own the frontend, business logic, integrations and application-specific behavior. CockroachBase provides the services behind that experience; its management interface helps you operate them.
 
-## Bring the development patterns you know
+## Bring the development patterns *you know*
 
 Put your Supabase experience to work with familiar API and SDK interactions in JavaScript, TypeScript and Python.
 
