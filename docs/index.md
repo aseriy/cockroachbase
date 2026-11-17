@@ -103,7 +103,7 @@ Already using CockroachDB? Connect CockroachBase to your existing deployment and
 
 As you grow, the same technology foundation can support greater scale and geographic expansion. Familiar APIs are the starting experience; CockroachDB’s deeper capabilities provide a path toward richer CockroachBase functionality.
 
-## Start building with *less backend plumbing*
+## Start building with less backend plumbing
 
 Bring your application logic and choose the CockroachDB deployment that fits your needs.
 

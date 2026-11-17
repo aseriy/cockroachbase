@@ -52,6 +52,16 @@
   --md-code-font: "Geist Mono";
 }
 
+:root {
+  --continuum-layout-margin-mobile: 24px;
+  --continuum-layout-margin-tablet: 80px;
+  --continuum-layout-margin-desktop-default: 160px;
+  --continuum-layout-boundary-max: 1440px;
+  --continuum-layout-boundary-offset: max(0px, calc((100vw - var(--continuum-layout-boundary-max)) / 2));
+  --continuum-layout-margin-default: calc(var(--continuum-layout-boundary-offset) + var(--continuum-layout-margin-mobile));
+  --continuum-component-content-padding-vertical: 72px;
+}
+
 body {
   -webkit-font-smoothing: auto;
   -moz-osx-font-smoothing: auto;
@@ -67,9 +77,9 @@ body {
 }
 
 .md-content__inner {
-  max-width: 1160px;
-  margin: 0 auto !important;
-  padding: 0 24px !important;
+  max-width: none;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 .md-content__inner::before {
@@ -239,6 +249,10 @@ body {
 }
 
 @media (min-width: 768px) {
+  :root {
+    --continuum-layout-margin-default: calc(var(--continuum-layout-boundary-offset) + var(--continuum-layout-margin-tablet));
+  }
+
   .landing-header__bar {
     grid-template-columns: 24px minmax(0, 1fr) max-content;
   }
@@ -269,6 +283,14 @@ body {
 }
 
 @media (min-width: 1280px) {
+  :root {
+    --continuum-layout-margin-default: calc(var(--continuum-layout-boundary-offset) + var(--continuum-layout-margin-desktop-default));
+  }
+
+  .landing-hero {
+    min-height: max(900px, 100svh);
+  }
+
   .landing-header__bar {
     grid-template-columns: 223px minmax(0, 1fr) max-content;
     padding-inline: max(24px, calc(50vw - 570px));
@@ -312,7 +334,9 @@ body {
 .landing-hero {
   position: relative;
   isolation: isolate;
-  padding: 120px 0 96px;
+  overflow: hidden;
+  padding-block: 161px 72px;
+  padding-inline: var(--continuum-layout-margin-default);
   display: flex;
   flex-direction: column;
   gap: 0;
@@ -340,7 +364,8 @@ body {
 }
 
 .landing-section {
-  padding: 112px 0 80px;
+  padding-block: 112px 80px;
+  padding-inline: var(--continuum-layout-margin-default);
 }
 
 .landing-section:last-of-type:has(.landing-cta) {
