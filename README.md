@@ -9,12 +9,12 @@ Values are the `--continuum-color-*` custom properties declared on `:root` in th
 | Token | Hex | RGB | Role |
 |---|---|---|---|
 | `digital-black` | `#000` | 0, 0, 0 | page, header, and section backgrounds |
-| `clarity-white` | `#fff` | 255, 255, 255 | headlines, body, nav links, logo, button outline start |
+| `clarity-white` | `#fff` | 255, 255, 255 | headlines, body, nav links, logo, button outline start, capabilities item dividers |
 | `deep-green` | `#101913` | 16, 25, 19 | image tiles and panels |
 | `sci-fi-blue` | `#60ecff` | 96, 236, 255 | eyebrows, hero theme, footer link hover, capabilities link text |
 | `sci-fi-blue-dark` | `#144f6b` | 20, 79, 107 | button hover in the blue theme |
 | `sci-fi-blue-light` | `#dffbff` | 223, 251, 255 | declared, no use observed on the Continuum page |
-| `bio-green` | `#aede54` | 174, 222, 84 | button hover fill, focus outline, nav hover, open FAQ question |
+| `bio-green` | `#aede54` | 174, 222, 84 | button hover fill, focus outline, nav hover, open FAQ question, headline accent words (`data-text-accent`), first capabilities divider |
 | `bio-green-dark` | `#43541f` | 67, 84, 31 | button hover in the green theme |
 | `bio-green-light` | `#d7eea9` | 215, 238, 169 | declared, no use observed on the Continuum page |
 | `data-purple` | `#9059ff` | 144, 89, 255 | primary button fill, rich-text h2 |
@@ -62,10 +62,11 @@ The stylesheet has no bare `html`, `body`, heading, `p`, or `a` rules. Type is a
 ## Components
 
 - Header: absolute over the hero, 100px tall, white text. The fixed bar has `backdrop-filter: blur(12px)` and 1px `#ffffff42` top and bottom borders, and turns solid black when the menu is open. Nav links are 15px weight 300 and turn bio-green on hover. The wordmark is 223 by 25px, inverted to white.
-- Buttons (`.continuum-button`): transparent fill, pill radius, gradient outline from white to `#999`, white Geist Mono label, 20px inline padding, 48px tall in the hero. The arrow slides 4px on hover. The standard hover fills bio-green with black text. The primary hero button and forms fill data-purple. Transitions are 0.18s ease-out.
+- Buttons (`.continuum-button`): a 40px-tall flex row with 8px gap, `padding: 12px var(--continuum-button-padding-inline)`, and `border-radius: 35px`. The fill is transparent. The outline is a separate absolutely positioned span with 1px padding and a 90-degree gradient from the outline start color (white) to the outline color (`#999`), masked with `mask-composite: exclude` so only a 1px ring shows. The label uses the mono-sml tokens in the button text color. The icon is an inline `arrow-right` SVG, viewBox 0 0 10 10, in the same color. Text-appearance buttons (`data-button-appearance="text"`), used for the capabilities links, omit the outline span. The arrow slides 4px on hover. The standard hover fills bio-green with black text. The primary hero button and forms fill data-purple. Transitions are 0.18s ease-out. The stylesheet also sets 48px height on hero action buttons; whether that rule carries `!important` over the inline 40px is unverified.
 - Hero (`hero-subpage`, theme `sci-fi-blue`, background `theme-artwork`): cover-fit artwork with no background color of its own. Eyebrow in sci-fi-blue, copy in white at body size plus 2px and weight 300. The breadcrumb block uses `mix-blend-mode: difference`. The video frame has a 24px radius on black.
-- Capabilities overview: flat rows on black with no card surface. One-column list items have a fixed 70% copy column. Two-column grid items are 530px wide at source. A full-width SVG rule separates items. Link text is sci-fi-blue.
-- Proof stat block: intro row aligned to the baseline with a 96px split gap, white h1 headline, summary in `#888884`.
+- Headline accents: spans marked `data-text-accent` inside eyebrows and section headlines are bio-green.
+- Capabilities overview: flat rows on black with no card surface. One-column list items have a fixed 70% copy column. Two-column grid items are 530px wide at source. Each item opens with a 1px full-width `span` divider (`data-capabilities-overview-divider`), bio-green on the first item and white on the rest, with 20px padding above and below. The item title uses the h1 tokens at 610px source width, the description uses the body tokens at 700px, and the link is a text-appearance button. Link text is sci-fi-blue.
+- Proof stat block: intro row aligned to the baseline with a 96px split gap, white h1 headline with `text-wrap: balance` and `hyphens: manual`, summary in `#888884` (the inline style sets white; the stylesheet overrides it with `!important`).
 - Flexible content block: transparent background. Media is 320px tall, rising to 520px at 768px. The image radius is 32px on the inner edge. Copy is padded 160px at the top. The summary is timeless-taupe at 17px with a 1px sci-fi-blue `hr`.
 - FAQ: the trigger is a reset button. The question is white and turns bio-green when open. The icon is a 20px plus made of two 1px bio-green strokes that collapse to a minus. The panel animates `grid-template-rows` from 0fr to 1fr over 0.24s.
 - CTA ending: headline in digital black at hero-headline size over the sci-fi-blue artwork. The primary button is filled data-purple, the secondary is outlined black. Max width is 1200px.
@@ -95,7 +96,12 @@ Section owners of `https://www.cockroachlabs.com/product/continuum/` in page ord
 
 The two stylesheets linked from the page were fetched and read in 100K-character windows. Surface styling, meaning section padding and the hero and card boxes, is carried by inline `style` attributes on the markup and was confirmed from curl output of the page.
 
-Open item: the color and thickness of the `data-capabilities-overview-item-rule` divider have not been read.
+Open items:
+
+- The rich-text surface, text, and accent colors are set inline through `--continuum-rich-text-surface`, `--continuum-rich-text-text`, and `--continuum-rich-text-accent`; their values have not been read.
+- The header and footer inline styles below two levels of markup have not been read.
+- Which artwork file the Continuum hero loads has not been read.
+- Whether the stylesheet's 48px height for hero action buttons carries `!important` over the inline 40px has not been verified.
 
 ## Fonts
 
