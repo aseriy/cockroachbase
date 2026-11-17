@@ -27,16 +27,10 @@ def on_page_content(html: str, page: Any, config: Any, files: Any) -> str:
     # 2. Hero and sections split on h2
     _build_sections(soup)
 
-    # 3. Heading wrappers
-    _wrap_headings(soup)
-
-    # 4. Stats tiles from all-bold lists
+    # 3. Stats tiles from all-bold lists
     _build_stats(soup)
 
-    # 5. Cards from runs of bold-led paragraphs
-    _build_cards(soup)
-
-    # 6. Tabs from [!TAB] callouts
+    # 4. Tabs from [!TAB] callouts
     _build_tabs(soup)
 
     logger.debug(f"landing hook processed {page.file.src_uri}")
@@ -140,21 +134,6 @@ def _build_sections(soup: BeautifulSoup) -> None:
     # end for
 
 
-def _wrap_headings(soup: BeautifulSoup) -> None:
-    for section in soup.select("section.landing-section"):
-        h2 = section.find(True, recursive=False)
-        intro = h2.find_next_sibling() if h2 is not None else None
-        if intro is None or intro.name != "p":
-            continue
-        # end if
-        wrap = _new(soup, "div")
-        wrap["class"] = "landing-heading"
-        h2.insert_before(wrap)
-        wrap.append(h2.extract())
-        wrap.append(intro.extract())
-    # end for
-
-
 def _is_all_strong(items: List[Tag]) -> bool:
     for li in items:
         children = li.find_all(True, recursive=False)
@@ -194,54 +173,6 @@ def _build_stats(soup: BeautifulSoup) -> None:
             grid.append(tile)
         # end for
         ul.replace_with(grid)
-    # end for
-
-
-def _is_lead(el: Tag) -> bool:
-    if el.name != "p" or not el.contents:
-        return False
-    # end if
-    first = el.contents[0]
-    return isinstance(first, Tag) and first.name == "strong"
-
-
-def _flush_cards(soup: BeautifulSoup, run: List[Tag]) -> None:
-    if len(run) < 2:
-        return
-    # end if
-    grid = _new(soup, "div")
-    grid["class"] = "landing-cards"
-    run[0].insert_before(grid)
-    for p in run:
-        card = _new(soup, "div")
-        card["class"] = "landing-card"
-        title = _new(soup, "div")
-        title["class"] = "landing-card__title"
-        title.append(p.contents[0].extract())
-        card.append(title)
-        body = _new(soup, "div")
-        body["class"] = "landing-card__body"
-        for child in list(p.contents):
-            body.append(child.extract())
-        # end for
-        card.append(body)
-        grid.append(card)
-        p.decompose()
-    # end for
-
-
-def _build_cards(soup: BeautifulSoup) -> None:
-    for section in soup.select("section"):
-        run: List[Tag] = []
-        for el in section.find_all(True, recursive=False):
-            if _is_lead(el):
-                run.append(el)
-            else:
-                _flush_cards(soup, run)
-                run = []
-            # end if
-        # end for
-        _flush_cards(soup, run)
     # end for
 
 

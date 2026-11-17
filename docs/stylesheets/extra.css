@@ -221,7 +221,6 @@ body {
   gap: 10px;
   padding: 12px 21px;
   font-size: 14px;
-  font-weight: 200;
 }
 
 .landing-button.landing-header__cta:is(:hover, :focus-visible) {
@@ -311,10 +310,13 @@ body {
 }
 
 .landing-hero {
+  position: relative;
+  isolation: isolate;
   padding: 120px 0 96px;
   display: flex;
   flex-direction: column;
   gap: 0;
+  background: var(--continuum-color-digital-black) url("../images/hero-sci-fi-blue.jpg") center / cover no-repeat;
 }
 
 .md-typeset h1 {
@@ -341,10 +343,19 @@ body {
   padding: 112px 0 80px;
 }
 
-.landing-heading {
-  border-bottom: 1px solid var(--continuum-color-bio-green);
-  padding-bottom: 48px;
-  margin-bottom: 64px;
+.landing-section:last-of-type:has(.landing-cta) {
+  position: relative;
+  isolation: isolate;
+  background: var(--continuum-color-digital-black) url("../images/cta-sci-fi-blue.jpg") center / cover no-repeat;
+}
+
+.landing-section:last-of-type:has(.landing-cta) > h2 {
+  color: var(--continuum-color-digital-black);
+}
+
+.landing-section:last-of-type:has(.landing-cta) > h2 + p {
+  color: var(--continuum-color-digital-black);
+  border-bottom: 0;
 }
 
 .md-typeset h2 {
@@ -355,9 +366,11 @@ body {
   color: var(--continuum-color-clarity-white);
 }
 
-.landing-heading p {
-  max-width: 720px;
-  margin: 24px 0 0;
+.landing-section > h2 + p {
+  margin: 24px 0 64px;
+  padding-bottom: 48px;
+  padding-right: max(0px, calc(100% - 720px));
+  border-bottom: 1px solid var(--continuum-color-bio-green);
 }
 
 .md-typeset h1 em,
@@ -439,19 +452,26 @@ body {
   padding: 72px 0;
 }
 
-.landing-section:has(.landing-stats) .landing-heading {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-  border-bottom: 0;
-  padding-bottom: 0;
-  margin-bottom: 0;
+.landing-section:has(.landing-stats) {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  row-gap: 0;
 }
 
-.landing-section:has(.landing-stats) .landing-heading p {
-  max-width: none;
+.landing-section:has(.landing-stats) > h2 {
   margin: 0;
+}
+
+.landing-section:has(.landing-stats) > h2 + p {
+  margin: 40px 0 0;
+  padding: 0;
+  border: 0;
+  max-width: none;
   color: var(--continuum-color-flexible-content-body);
+}
+
+.landing-section:has(.landing-stats) > .landing-stats {
+  grid-column: 1 / -1;
 }
 
 .landing-stats {
@@ -485,33 +505,33 @@ body {
   white-space: pre-wrap;
 }
 
-.landing-cards {
+.landing-section:has(> p > strong:first-child) {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 56px 96px;
-  margin-bottom: 20px;
 }
 
-.landing-card__title {
+.landing-section:has(> p > strong:first-child) > :not(p:has(> strong:first-child)) {
+  grid-column: 1 / -1;
+}
+
+.landing-section:has(> p > strong:first-child) > p:has(> strong:first-child) {
+  margin: 0;
+  max-width: 46ch;
+  font-size: 16px;
+  font-weight: 200;
+  line-height: 27px;
+  color: var(--continuum-color-clarity-white);
+}
+
+.landing-section:has(> p > strong:first-child) > p:has(> strong:first-child) > strong:first-child {
+  display: block;
   margin-bottom: 16px;
   font-size: clamp(26px, 2.6vw, 34px);
   font-weight: 200;
   line-height: 1.15;
   letter-spacing: -0.025em;
   color: var(--continuum-color-sci-fi-blue);
-}
-
-.landing-card__title strong {
-  font-weight: inherit;
-  color: inherit;
-}
-
-.landing-card__body {
-  font-size: 16px;
-  font-weight: 200;
-  line-height: 27px;
-  color: var(--continuum-color-clarity-white);
-  max-width: 46ch;
 }
 
 .landing-tabs {
@@ -743,20 +763,20 @@ body {
 }
 
 @media (min-width: 1000px) {
-  .landing-section:has(.landing-stats) .landing-heading {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-end;
-    gap: 48px;
+  .landing-section:has(.landing-stats) {
+    grid-template-columns: minmax(0, 1fr) 350px;
+    column-gap: 48px;
+    align-items: end;
   }
 
-  .landing-section:has(.landing-stats) .landing-heading h2 {
+  .landing-section:has(.landing-stats) > h2 {
+    grid-column: 1;
     max-width: 540px;
   }
 
-  .landing-section:has(.landing-stats) .landing-heading p {
-    width: 350px;
-    flex-shrink: 0;
+  .landing-section:has(.landing-stats) > h2 + p {
+    grid-column: 2;
+    margin: 0;
   }
 }
 
@@ -767,7 +787,7 @@ body {
 }
 
 @media (max-width: 1023px) {
-  .landing-cards {
+  .landing-section:has(> p > strong:first-child) {
     grid-template-columns: 1fr;
     gap: 40px;
   }
