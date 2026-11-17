@@ -24,13 +24,16 @@ def on_page_content(html: str, page: Any, config: Any, files: Any) -> str:
     # 1. Buttons from [!CTA] callouts
     _build_buttons(soup)
 
-    # 2. Hero and sections split on h2
+    # 2. Eyebrows from [!EYEBROW] callouts
+    _build_eyebrows(soup)
+
+    # 3. Hero and sections split on h2
     _build_sections(soup)
 
-    # 3. Stats tiles from all-bold lists
+    # 4. Stats tiles from all-bold lists
     _build_stats(soup)
 
-    # 4. Tabs from [!TAB] callouts
+    # 5. Tabs from [!TAB] callouts
     _build_tabs(soup)
 
     logger.debug(f"landing hook processed {page.file.src_uri}")
@@ -111,6 +114,16 @@ def _build_buttons(soup: BeautifulSoup) -> None:
         # end for
         cta.append(row)
         callout.replace_with(cta)
+    # end for
+
+
+def _build_eyebrows(soup: BeautifulSoup) -> None:
+    for callout in soup.select("div.admonition.eyebrow"):
+        title_el = callout.find("p", class_="admonition-title", recursive=False)
+        eyebrow = _new(soup, "p")
+        eyebrow["class"] = "landing-eyebrow"
+        eyebrow.string = title_el.get_text(strip=True) if title_el is not None else ""
+        callout.replace_with(eyebrow)
     # end for
 
 

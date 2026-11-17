@@ -335,12 +335,23 @@ body {
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  padding-block: 161px 72px;
+  padding-block: 247px 72px;
   padding-inline: var(--continuum-layout-margin-default);
   display: flex;
   flex-direction: column;
   gap: 0;
   background: var(--continuum-color-digital-black) url("../images/hero-sci-fi-blue.jpg") center / cover no-repeat;
+}
+
+.md-typeset .landing-eyebrow {
+  margin: 0 0 32px;
+  color: var(--continuum-color-sci-fi-blue);
+  font-family: var(--md-code-font);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
 .md-typeset h1 {

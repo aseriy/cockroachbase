@@ -7,6 +7,8 @@ hide:
 
 --8<-- "includes/nav.md"
 
+> [!EYEBROW] From many databases to one estate
+
 # Build your application with *less backend work*
 
 CockroachBase brings familiar application services to CockroachDB, helping you ship sooner, lower development costs and keep control of what you build.
