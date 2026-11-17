@@ -127,7 +127,6 @@ body {
   font-size: clamp(44px, 5.5556vw, 80px);
   font-weight: 200;
   line-height: 1.1;
-  letter-spacing: -0.03em;
   color: var(--continuum-color-clarity-white);
   max-width: 1000px;
 }
@@ -157,8 +156,7 @@ body {
   margin: 0;
   font-size: 40px;
   font-weight: 200;
-  line-height: 1.25;
-  letter-spacing: -0.025em;
+  line-height: 50px;
   color: var(--continuum-color-clarity-white);
 }
 
@@ -179,28 +177,22 @@ body {
 
 .md-typeset h3 {
   margin: 0 0 16px;
-  font-size: clamp(26px, 2.5vw, 36px);
-  font-weight: 200;
-  line-height: 1.12;
-  letter-spacing: -0.015em;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 26px;
   color: var(--continuum-color-clarity-white);
 }
 
 .md-typeset p,
 .md-typeset li {
   font-size: 16px;
-  font-weight: 200;
+  font-weight: 400;
   line-height: 27px;
   color: var(--continuum-color-clarity-white);
 }
 
 .md-typeset p {
   margin: 0 0 14px;
-}
-
-.md-typeset p strong {
-  color: var(--continuum-color-clarity-white);
-  font-weight: 400;
 }
 
 .md-typeset a {
@@ -477,10 +469,6 @@ body {
 }
 
 @media (max-width: 760px) {
-  .md-typeset h2 {
-    font-size: 32px;
-  }
-
   .landing-stats {
     grid-template-columns: 1fr;
   }
