@@ -13,6 +13,11 @@ extra_javascript:
 markdown_extensions:
   - pymdownx.quotes:
       callouts: true
+  - pymdownx.snippets:
+      base_path: [docs]
+      check_paths: true
+exclude_docs: |
+  /includes/
 plugins: []
 extra:
   generator: false

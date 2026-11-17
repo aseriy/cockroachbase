@@ -6,8 +6,16 @@
 
 {% block header %}
   <header class="landing-header">
-    <div class="landing-header__inner">
-      <a class="landing-header__logo" href="{{ nav.homepage.url | url }}"><img src="{{ 'images/cockroach-labs.svg' | url }}" alt=""></a>
+    <div class="landing-header__bar">
+      <a class="landing-header__logo" href="#" aria-label="Cockroach Labs homepage">
+        <img class="landing-header__wordmark" src="{{ 'images/cockroach-labs.svg' | url }}" alt="">
+        <span class="landing-header__symbol" aria-hidden="true"></span>
+      </a>
+      <nav class="landing-header__nav" aria-label="Primary navigation"></nav>
+      <button type="button" class="landing-header__menu" aria-label="Open menu">
+        <span class="landing-header__bars" aria-hidden="true"><span></span><span></span><span></span></span>
+      </button>
+      <div class="landing-header__actions"></div>
     </div>
   </header>
 {% endblock %}

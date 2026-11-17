@@ -5,6 +5,8 @@ hide:
   - toc
 ---
 
+--8<-- "includes/nav.md"
+
 # Build your application with *less backend work*
 
 CockroachBase brings familiar application services to CockroachDB, helping you ship sooner, lower development costs and keep control of what you build.

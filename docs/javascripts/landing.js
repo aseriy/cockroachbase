@@ -2,6 +2,22 @@ document.addEventListener("DOMContentLoaded", function () {
   var article = document.querySelector("article.md-content__inner.md-typeset");
   if (!article) return;
 
+  var navCallout = article.querySelector(".admonition.nav");
+  if (navCallout) {
+    var navParas = navCallout.querySelectorAll(":scope > p:not(.admonition-title)");
+    var navSlot = document.querySelector(".landing-header__nav");
+    var actionsSlot = document.querySelector(".landing-header__actions");
+    if (navParas[0] && navSlot) {
+      navParas[0].querySelectorAll("a").forEach(function (a) { navSlot.appendChild(a); });
+    }
+    if (navParas[1] && actionsSlot) {
+      var actionLinks = navParas[1].querySelectorAll("a");
+      actionLinks.forEach(function (a) { actionsSlot.appendChild(a); });
+      if (actionLinks.length) actionLinks[actionLinks.length - 1].classList.add("landing-header__cta");
+    }
+    navCallout.parentNode.removeChild(navCallout);
+  }
+
   var hero = document.createElement("section");
   hero.className = "landing-hero";
   var current = hero;
@@ -169,7 +185,7 @@ document.addEventListener("DOMContentLoaded", function () {
     activate(0);
   });
 
-  article.querySelectorAll(".admonition.cta a").forEach(function (a) {
+  document.querySelectorAll(".md-typeset .admonition.cta a, .landing-header__cta").forEach(function (a) {
     var ns = "http://www.w3.org/2000/svg";
     var svg = document.createElementNS(ns, "svg");
     svg.setAttribute("viewBox", "0 0 10 10");
