@@ -7,7 +7,7 @@ hide:
 
 --8<-- "includes/nav.md"
 
-> [!EYEBROW] From many databases to one estate
+> [!EYEBROW] Land on CockroachDB day one. Grow fast. Scale to meet demand.
 
 # Build your application with *less backend work*
 
