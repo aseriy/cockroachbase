@@ -215,61 +215,20 @@ body {
   text-transform: capitalize;
 }
 
-.landing-header__cta {
-  --continuum-button-background: #0000;
+.landing-button.landing-header__cta {
   --continuum-button-outline-start-color: var(--continuum-color-bio-green);
   --continuum-button-outline-color: var(--continuum-color-bio-green);
-  --continuum-button-text-color: var(--continuum-color-clarity-white);
-  position: relative;
-  display: inline-flex;
-  align-items: center;
   gap: 10px;
-  height: 40px;
   padding: 12px 21px;
-  border-radius: 35px;
-  background: var(--continuum-button-background);
-  color: var(--continuum-button-text-color);
-  font-family: var(--md-code-font);
   font-size: 14px;
   font-weight: 200;
-  line-height: 16px;
-  letter-spacing: 1.2px;
-  text-decoration: none;
-  transition: background 0.18s ease-out, color 0.18s ease-out;
 }
 
-.landing-header__cta::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  padding: 1px;
-  background: linear-gradient(90deg, var(--continuum-button-outline-start-color) 0%, var(--continuum-button-outline-color) 100%);
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  mask-composite: exclude;
-  pointer-events: none;
-}
-
-.landing-header__cta:is(:hover, :focus-visible) {
+.landing-button.landing-header__cta:is(:hover, :focus-visible) {
   --continuum-button-background: var(--continuum-color-bio-green);
   --continuum-button-outline-start-color: var(--continuum-color-bio-green);
   --continuum-button-outline-color: var(--continuum-color-bio-green);
   --continuum-button-text-color: var(--continuum-color-digital-black);
-  color: var(--continuum-button-text-color);
-}
-
-.landing-header__cta svg {
-  display: block;
-  width: 10px;
-  height: 10px;
-  color: var(--continuum-button-text-color);
-  transition: transform 0.18s ease-out;
-}
-
-.landing-header__cta:is(:hover, :focus-visible) svg {
-  transform: translateX(4px);
 }
 
 .landing-header__logo:focus-visible,
@@ -374,7 +333,7 @@ body {
   margin: 0 0 31px;
 }
 
-.md-typeset .landing-hero .admonition.cta {
+.landing-hero .landing-cta {
   margin: 40px 0 0;
 }
 
@@ -602,20 +561,6 @@ body {
   color: var(--continuum-color-clarity-white);
 }
 
-.md-typeset .admonition.tab {
-  margin: 0;
-  padding: 0;
-  border: none;
-  border-radius: 0;
-  background: none;
-  box-shadow: none;
-  font-size: 16px;
-}
-
-.md-typeset .admonition.tab > .admonition-title {
-  display: none;
-}
-
 .landing-tabs__index {
   margin-right: 6px;
 }
@@ -664,36 +609,28 @@ body {
   margin-bottom: 0;
 }
 
-.md-typeset .admonition.cta {
+.landing-cta {
   margin: 20px 0;
-  padding: 0;
-  border: none;
-  border-radius: 0;
-  background: none;
-  box-shadow: none;
-  font-size: 16px;
 }
 
-.md-typeset .admonition.cta > .admonition-title {
-  display: none;
-}
-
-.md-typeset .admonition.cta p {
+.landing-cta__row {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   margin: 0;
 }
 
-.md-typeset .admonition.cta a {
+.landing-button {
   --continuum-button-background: #0000;
   --continuum-button-outline-start-color: var(--continuum-color-clarity-white);
   --continuum-button-outline-color: var(--continuum-color-button-outline);
   --continuum-button-text-color: var(--continuum-color-clarity-white);
   position: relative;
   display: inline-flex;
+  flex-direction: row;
   align-items: center;
   gap: 8px;
+  width: fit-content;
   height: 40px;
   padding: 12px 20px;
   border-radius: 35px;
@@ -708,49 +645,95 @@ body {
   transition: background 0.18s ease-out, color 0.18s ease-out;
 }
 
-.md-typeset .landing-hero .admonition.cta a {
+.md-typeset .landing-button,
+.md-typeset .landing-button:is(:hover, :focus-visible) {
+  color: var(--continuum-button-text-color);
+  text-decoration: none;
+}
+
+.landing-hero .landing-button {
   height: 48px;
   padding: 12px 24px;
   font-size: calc(12px * 1.1);
 }
 
-.md-typeset .admonition.cta a::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  padding: 1px;
-  background: linear-gradient(90deg, var(--continuum-button-outline-start-color) 0%, var(--continuum-button-outline-color) 100%);
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  mask-composite: exclude;
-  pointer-events: none;
-}
-
-.md-typeset .admonition.cta a:first-of-type {
+.landing-cta .landing-button:first-of-type {
   --continuum-button-background: var(--continuum-color-data-purple);
   --continuum-button-outline-start-color: var(--continuum-color-data-purple);
   --continuum-button-outline-color: var(--continuum-color-data-purple);
 }
 
-.md-typeset .admonition.cta a:is(:hover, :focus-visible) {
+.landing-cta .landing-button:is(:hover, :focus-visible) {
   --continuum-button-background: var(--continuum-color-sci-fi-blue-dark);
   --continuum-button-outline-start-color: var(--continuum-color-sci-fi-blue-dark);
   --continuum-button-outline-color: var(--continuum-color-sci-fi-blue-dark);
   --continuum-button-text-color: var(--continuum-color-clarity-white);
-  color: var(--continuum-button-text-color);
 }
 
-.md-typeset .admonition.cta a svg {
-  display: block;
-  width: 10px;
-  height: 10px;
+.landing-button [data-continuum-button-outline] {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(90deg, var(--continuum-button-outline-start-color) 0%, var(--continuum-button-outline-color) 100%);
+  -webkit-mask: linear-gradient(var(--continuum-color-digital-black) 0 0) content-box, linear-gradient(var(--continuum-color-digital-black) 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(var(--continuum-color-digital-black) 0 0) content-box, linear-gradient(var(--continuum-color-digital-black) 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+  transition: background 0.18s ease-out;
+}
+
+.landing-button [data-continuum-button-label] {
+  width: fit-content;
   color: var(--continuum-button-text-color);
+  transition: color 0.18s ease-out;
+}
+
+.landing-button [data-continuum-button-arrow] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
   transition: transform 0.18s ease-out;
 }
 
-.md-typeset .admonition.cta a:is(:hover, :focus-visible) svg {
+.landing-button [data-continuum-button-arrow] > div {
+  position: relative;
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.landing-button [data-continuum-button-arrow] span {
+  display: block;
+  position: absolute;
+  width: 9.336px;
+  height: 9.336px;
+  left: 5px;
+  top: 2.92px;
+  margin-left: -0.584px;
+  margin-top: -0.584px;
+}
+
+.landing-button [data-continuum-button-icon] {
+  display: block;
+  width: 100%;
+  height: 100%;
+  color: var(--continuum-button-text-color);
+  transition: color 0.18s ease-out;
+}
+
+.landing-button [data-continuum-button-icon] path {
+  stroke: currentColor;
+  stroke-width: 1.25;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.landing-button:is(:hover, :focus-visible) [data-continuum-button-arrow] {
   transform: translateX(4px);
 }
 
@@ -797,7 +780,7 @@ body {
 }
 
 @media (max-width: 760px) {
-  .md-typeset .admonition.cta p {
+  .landing-cta__row {
     flex-direction: column;
   }
 

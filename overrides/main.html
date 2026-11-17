@@ -11,11 +11,31 @@
         <img class="landing-header__wordmark" src="{{ 'images/cockroach-labs.svg' | url }}" alt="">
         <span class="landing-header__symbol" aria-hidden="true"></span>
       </a>
-      <nav class="landing-header__nav" aria-label="Primary navigation"></nav>
+      {% set header = page.meta.landing_header if page else none %}
+      <nav class="landing-header__nav" aria-label="Primary navigation">
+        {% if header %}
+        {% for item in header.nav %}
+        <a href="{{ item.url }}">{{ item.title }}</a>
+        {% endfor %}
+        {% endif %}
+      </nav>
       <button type="button" class="landing-header__menu" aria-label="Open menu">
         <span class="landing-header__bars" aria-hidden="true"><span></span><span></span><span></span></span>
       </button>
-      <div class="landing-header__actions"></div>
+      <div class="landing-header__actions">
+        {% if header %}
+        {% for item in header.actions %}
+        <a href="{{ item.url }}">{{ item.title }}</a>
+        {% endfor %}
+        {% if header.cta %}
+        <a class="landing-button landing-header__cta" href="{{ header.cta.url }}">
+          <span data-continuum-button-outline aria-hidden="true"></span>
+          <div data-continuum-button-label>{{ header.cta.title }}</div>
+          <div data-continuum-button-arrow><div><span><svg viewBox="0 0 10 10" fill="none" aria-hidden="true" focusable="false" data-continuum-button-icon><path d="M0.62501 4.99999H9.375"></path><path d="M5.00001 9.37499L9.375 4.99999L5.00001 0.625"></path></svg></span></div></div>
+        </a>
+        {% endif %}
+        {% endif %}
+      </div>
     </div>
   </header>
 {% endblock %}

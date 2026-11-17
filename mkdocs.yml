@@ -18,6 +18,8 @@ markdown_extensions:
       check_paths: true
 exclude_docs: |
   /includes/
+hooks:
+  - hooks/landing.py
 plugins: []
 extra:
   generator: false
