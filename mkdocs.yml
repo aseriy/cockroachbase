@@ -1,5 +1,6 @@
 site_name: CockroachBase
 site_url: https://aseriy.github.io/cockroachbase/
+site_author: CockroachLabs
 theme:
   name: material
   custom_dir: overrides

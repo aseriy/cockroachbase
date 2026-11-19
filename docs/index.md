@@ -1,5 +1,6 @@
 ---
-title: CockroachBase
+title: Application Platform for CockroachDB
+description: Build on CockroachDB with familiar Supabase patterns for data APIs, auth, realtime, storage, and edge functions. Write less backend code and grow across regions.
 hide:
   - navigation
   - toc
